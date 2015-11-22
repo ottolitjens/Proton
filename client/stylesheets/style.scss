@@ -1,0 +1,202 @@
+$backColorDark1: #424B4F;
+$backColorLight1: #FFF;
+$foreColorDark1: #000;
+$foreColorLight1: #FFF;
+$glassBackground: rgba(243,243,243,0.10);
+$backColorSubMenu: #EEE;
+
+//Debug
+$debugMode: 'false';
+
+//Tabs
+$tabVerticalSpace: 8px;
+$tabHorizontalSpace: 10px;
+
+
+body{
+	background: $backColorLight1;
+	color: $foreColorDark1;
+   	padding:0; margin:0;
+}
+
+.mainMenu{
+	background: $backColorDark1;
+	color: $foreColorLight1;
+	line-height: 40px;
+	padding:0; margin:0;
+	// border:3px solid #71AD21;
+}
+
+.mainMenu div{
+	vertical-align: middle;
+	padding:0; margin:0;
+	//display: table;
+}
+
+.mainMenu div.right{
+	text-align: right;
+	padding-right:25px;
+}
+.mainMenu div.left{
+	text-align: left;
+}
+
+.mainMenu ul{
+	list-style-type: none;	
+	width:100%;
+	min-width:400px;
+	display:inline-block;
+	text-align:center;
+	padding:0;
+	margin:0;
+	vertical-align: bottom;
+
+	// Debug
+	@if $debugMode == 'true'{
+		border:1px solid #73AD21;
+	}
+}
+
+.mainMenu ul.tabs li{
+	// display: inline;	
+	// border-radius: 3px 20px 20px 20px;
+	// padding: 0px 7px;
+	float:left;
+	margin:0px -1px;
+
+}
+
+.mainMenu ul.tabs li a {
+	text-decoration:none;
+    display:inline-block;
+    border-radius:0px 0px 0px 0px;
+    background:$glassBackground;
+	font-family: Helvetica-Light;
+	font-size: 14px;
+	font-weight:lighter;
+	color: #FFFFFF;
+	line-height: 17px;
+	vertical-align: bottom;
+
+	//Size
+	padding:$tabVerticalSpace $tabHorizontalSpace;
+	min-width: 100px;
+
+	// Animation
+	transition:all linear 0.15s;
+
+	// Debug
+	@if $debugMode == 'true'{
+		border:1px solid #73AD21;
+	}
+}
+
+.mainMenu ul.tabs li a:hover {
+    background:#a7cce5;
+    text-decoration:none;
+}
+
+.mainMenu ul.tabs li a.active {
+    background:$backColorSubMenu;
+    color:$foreColorDark1;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+ul.nav li{
+	display: inline;	
+	// border-radius: 3px 20px 20px 20px;
+	// padding: 0px 7px;
+	float:left;
+	margin:0px 2px;
+}
+
+ul.nav li a {
+	text-decoration:none;
+    display:inline-block;
+	font-family: Helvetica-Light;
+	font-size: 14px;
+	color: #FFFFFF;
+	line-height: 17px;
+	vertical-align: middle;
+
+	//Size
+	padding:$tabVerticalSpace $tabHorizontalSpace;
+	min-width: 100px;
+
+	// Animation
+	transition:all linear 0.15s;
+
+	// Debug
+	@if $debugMode == 'true'{
+		border:1px solid #73AD21;
+	}
+}
+
+.subMenu div{
+	line-height: 30px;
+	background: $backColorSubMenu;
+	vertical-align: middle;
+	padding:0; margin:0;
+
+	// Debug
+	@if $debugMode == 'true'{
+		border:1px solid #73AD21;
+	}
+}
+
+.subMenu ul{
+	list-style-type: none;	
+	width:100%;
+	display:inline-block;
+	text-align:center;
+	padding:0;
+	margin:0;
+	vertical-align: bottom;
+
+	// Debug
+	@if $debugMode == 'true'{
+		border:1px solid #00F;
+	}
+}
+.subMenu li{
+	display: inline;	
+	float:left;
+	margin:0px 2px;
+}
+
+.subMenu ul li a{
+	text-decoration:none;
+    display:inline-block;
+	font-family: Helvetica-Light;
+	font-size: 12px;
+	color: #555;
+	line-height: 100%;
+	vertical-align: middle;
+
+	//Size
+	padding:$tabVerticalSpace $tabHorizontalSpace;
+	min-width: 100px;
+
+	// Animation
+	transition:all linear 0.15s;
+
+	// Debug
+	@if $debugMode == 'true'{
+		border:1px solid #73AD21;
+	}
+}
+
+.caret {
+  position: relative;
+  cursor: pointer;
+}
+.caret:before {
+  content: '';
+  position: absolute;
+  top: 35%;
+  left: 6px;
+  border-top: 6px solid #FFF;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
