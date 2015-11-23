@@ -1,202 +1,223 @@
-$backColorDark1: #424B4F;
-$backColorLight1: #FFF;
-$foreColorDark1: #000;
-$foreColorLight1: #FFF;
-$glassBackground: rgba(243,243,243,0.10);
-$backColorSubMenu: #EEE;
+//Main Menu
+$menuBackcolor: #424B4F;
+$menuForecolor: #FFF;
+$menuActiveBackcolor: #F00;
+$menuActiveForecolor: #FF0;
 
-//Debug
+//Tabs from Main Menu
+$tabBackcolor: 		rgba(243,243,243,0.10);
+$tabForecolor:		#FFF; 
+$tabActiveBackcolor:#EEE;
+$tabActiveForecolor:#222;
+
+//Sub Menu
+$subMenuBackcolor: $tabActiveBackcolor;
+$subMenuForecolor: #111;
+$subMenuActiveForecolor: #000;
+
+
 $debugMode: 'false';
 
-//Tabs
-$tabVerticalSpace: 8px;
-$tabHorizontalSpace: 10px;
+@if $debugMode == 'true'{
+	//Main Menu
+	$menuBackcolor: #99C;
+	$menuForecolor: #0F0;
+	$menuActiveBackcolor: #F00;
+	$menuActiveForecolor: #FF0;
 
+	//Tabs from Main Menu
+	$tabBackcolor: 		#543;
+	$tabForecolor:		#4FF; 
+	$tabActiveBackcolor:#199;
+	$tabActiveForecolor:#A88;
+
+	//Sub Menu
+	$subMenuBackcolor: $tabActiveBackcolor;
+	$subMenuForecolor: #0F0;
+	$subMenuActiveForecolor: #0FF;
+}
+
+div{
+	@if $debugMode == 'true'{
+		border: 1px solid #000;
+	}
+}
+a{
+	@if $debugMode == 'true'{
+		border: 1px dashed #000;
+	}
+}
+
+//----------------------------------
+//General
+//----------------------------------
 
 body{
-	background: $backColorLight1;
-	color: $foreColorDark1;
-   	padding:0; margin:0;
+	margin: 		0;
+	padding: 		0;
+	font-family: 	Helvetica-Light;
 }
 
-.mainMenu{
-	background: $backColorDark1;
-	color: $foreColorLight1;
-	line-height: 40px;
-	padding:0; margin:0;
-	// border:3px solid #71AD21;
+.right{
+	position:		absolute;
+	right:			0px;
+	margin-right: 	5px !important;
 }
 
-.mainMenu div{
-	vertical-align: middle;
-	padding:0; margin:0;
-	//display: table;
+div.navbar{
+	background:	$menuBackcolor;
+	position:	relative;
+	height:		40px;
 }
 
-.mainMenu div.right{
-	text-align: right;
-	padding-right:25px;
-}
-.mainMenu div.left{
-	text-align: left;
-}
-
-.mainMenu ul{
-	list-style-type: none;	
-	width:100%;
-	min-width:400px;
-	display:inline-block;
-	text-align:center;
-	padding:0;
-	margin:0;
-	vertical-align: bottom;
-
-	// Debug
-	@if $debugMode == 'true'{
-		border:1px solid #73AD21;
-	}
+div.subnavbar{
+	background:		$subMenuBackcolor;
+	font:			$subMenuForecolor;
+	position:		relative;
+	height:			35px;
+	border-bottom:	1px solid #DDD;
 }
 
-.mainMenu ul.tabs li{
-	// display: inline;	
-	// border-radius: 3px 20px 20px 20px;
-	// padding: 0px 7px;
-	float:left;
-	margin:0px -1px;
+//----------------------------------
+//App
+//----------------------------------
 
+div.menuApp{
+	padding: 	0px;
+	margin:		0px;
+	bottom:		10px;
+	// height: 	100%;
+	overflow:	hidden;
 }
 
-.mainMenu ul.tabs li a {
-	text-decoration:none;
-    display:inline-block;
-    border-radius:0px 0px 0px 0px;
-    background:$glassBackground;
-	font-family: Helvetica-Light;
-	font-size: 14px;
-	font-weight:lighter;
-	color: #FFFFFF;
-	line-height: 17px;
-	vertical-align: bottom;
-
-	//Size
-	padding:$tabVerticalSpace $tabHorizontalSpace;
-	min-width: 100px;
-
-	// Animation
-	transition:all linear 0.15s;
-
-	// Debug
-	@if $debugMode == 'true'{
-		border:1px solid #73AD21;
-	}
+.menuApp a{
+	//Box
+	bottom:				0px;
+	padding: 			0px 5px;
+	margin:				0px 0px;
+	//Text
+	color:				$menuForecolor;
+	text-decoration: 	none;
 }
 
-.mainMenu ul.tabs li a:hover {
-    background:#a7cce5;
-    text-decoration:none;
+div.menuApp.left{
+	// min-width:		200px;
+	padding-left:	10px;
+	padding-right:	30px;
+	position:		absolute;
+	left:			0px;
 }
 
-.mainMenu ul.tabs li a.active {
-    background:$backColorSubMenu;
-    color:$foreColorDark1;
-    font-weight:bold;
-    text-decoration:none;
+div.menuApp.right{
+	width:		100px;
+	text-align:	right;
 }
 
-ul.nav li{
-	display: inline;	
-	// border-radius: 3px 20px 20px 20px;
-	// padding: 0px 7px;
-	float:left;
-	margin:0px 2px;
+
+//----------------------------------
+//Tabs
+//----------------------------------
+
+div.menuTabs{
+	padding: 		0px;
+	margin:			0px;
+	margin-right: 	100px;
+	overflow:		hidden;
+	position: 		absolute;
+    bottom: 		0;
+    left: 			220px;
 }
 
-ul.nav li a {
-	text-decoration:none;
-    display:inline-block;
-	font-family: Helvetica-Light;
-	font-size: 14px;
-	color: #FFFFFF;
-	line-height: 17px;
-	vertical-align: middle;
-
-	//Size
-	padding:$tabVerticalSpace $tabHorizontalSpace;
-	min-width: 100px;
-
-	// Animation
-	transition:all linear 0.15s;
-
-	// Debug
-	@if $debugMode == 'true'{
-		border:1px solid #73AD21;
-	}
+.menuTabs ul{
+	list-style:	none;
+	padding: 	0px;
+	margin:		0px;
 }
 
-.subMenu div{
-	line-height: 30px;
-	background: $backColorSubMenu;
-	vertical-align: middle;
-	padding:0; margin:0;
-
-	// Debug
-	@if $debugMode == 'true'{
-		border:1px solid #73AD21;
-	}
+.menuTabs li{
+	display: 	inline;	
+	margin:		0px -3px;
+}
+.menuTabs a{
+	//Box
+	display:			inline-block;
+	background-color:	$tabBackcolor;
+	padding: 			7px 15px; //Vertical Horizontal
+	margin:				0px 0px;
+	min-width:			75px;
+	//Font
+	font-size: 			14px;
+	font-weight:		lighter;
+	color:				$tabForecolor;
+	text-decoration: 	none;
+	text-align:			center;
 }
 
-.subMenu ul{
-	list-style-type: none;	
-	width:100%;
-	display:inline-block;
-	text-align:center;
-	padding:0;
-	margin:0;
-	vertical-align: bottom;
-
-	// Debug
-	@if $debugMode == 'true'{
-		border:1px solid #00F;
-	}
-}
-.subMenu li{
-	display: inline;	
-	float:left;
-	margin:0px 2px;
+.menuTabs a.active{
+	background-color:	$tabActiveBackcolor;
+	color:				$tabActiveForecolor;
+	font-weight:		bold;
 }
 
-.subMenu ul li a{
-	text-decoration:none;
-    display:inline-block;
-	font-family: Helvetica-Light;
-	font-size: 12px;
-	color: #555;
-	line-height: 100%;
-	vertical-align: middle;
-
-	//Size
-	padding:$tabVerticalSpace $tabHorizontalSpace;
-	min-width: 100px;
-
-	// Animation
-	transition:all linear 0.15s;
-
-	// Debug
-	@if $debugMode == 'true'{
-		border:1px solid #73AD21;
-	}
+//----------------------------------
+//Sub Menu
+//----------------------------------
+div.submenu{
+	padding: 		0px;
+	margin:			0px;
+	margin-right: 	100px;
+	overflow:		hidden;
+	position: 		absolute;
+    bottom: 		8px;
+    overflow:		visible;
 }
 
-.caret {
-  position: relative;
-  cursor: pointer;
+.submenu ul{
+	list-style:	none;
+	padding: 	0px;
+	margin:		0px;
+	
 }
-.caret:before {
-  content: '';
-  position: absolute;
-  top: 35%;
-  left: 6px;
-  border-top: 6px solid #FFF;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
+.submenu li{
+	display: 		inline;	
+	padding-left:	10px;
+	padding-right:	10px;
+	position:	relative;
+}
+.submenu a{
+	padding: 			0px 5px;
+	margin:				0px 0px;
+	//Font
+	font-size: 			12px;
+	font-weight:		lighter;
+	color:				$subMenuForecolor;
+	text-decoration: 	none;
+}
+
+.submenu li.active a{
+	color:				$subMenuActiveForecolor;
+	font-weight:		bold;
+}
+
+//TESTE------------------
+.submenu li.active:after,.submenu li.active:before {
+    bottom: 		-9px;
+	left: 			50%;
+	border: 		solid transparent;
+	content: 		" ";
+	height: 		0;
+	width: 			0;
+	position: 		absolute;
+	pointer-events:	none;
+}
+.submenu li.active:after{
+	border-bottom-color: 	#FFF;
+	border-width: 			6px;
+	margin-left: 			-6px;
+}
+.submenu li.active:before{
+	// border-color: rgba(194, 225, 245, 0);
+	border-bottom-color: 	#DDD;
+	border-width: 			7px;
+	margin-left: 			-7px;
 }
